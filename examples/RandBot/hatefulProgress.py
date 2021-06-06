@@ -56,7 +56,7 @@ class RandBot(interface.Bot):
                 if betterManhattan != 0 and betterManhattan > max(abs(lh["position"][0]-cx), abs(lh["position"][1]-cy)):
                     betterManhattan = max(abs(lh["position"][0]-cx), abs(lh["position"][1]-cy))
                     targetLh = lh
-        return targetLh
+        return targetLh["position"][0], targetLh["position"][1]
 
     def aStar(start, goal, grid):
         return [[1,0]]

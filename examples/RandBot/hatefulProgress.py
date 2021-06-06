@@ -44,8 +44,8 @@ class RandBot(interface.Bot):
                 energy = random.randrange(state["energy"] + 1)
                 return self.attack(energy)
 
-        target = [1,1]
-        move = self.getCloserToLighthouse([1, 1], cx, cy)
+        target = self.chooseLighthouse(lighthouses, cx, cy)
+        move = self.getCloserToLighthouse(target, cx, cy)
         return self.move(*move)
 
     def chooseLighthouse(lighthouses, cx, cy):

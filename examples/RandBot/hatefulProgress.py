@@ -51,12 +51,16 @@ class RandBot(interface.Bot):
     def chooseLighthouse(lighthouses, cx, cy):
         betterManhattan = 9999
         targetLh = lighthouses[0]
+        finalTarget = []
         for lh in lighthouses:
             if lh["owner"] != self.player_num:
                 if betterManhattan != 0 and betterManhattan > max(abs(lh["position"][0]-cx), abs(lh["position"][1]-cy)):
                     betterManhattan = max(abs(lh["position"][0]-cx), abs(lh["position"][1]-cy))
-                    targetLh = lh
-        return targetLh
+                    targetLhX = lh["position"][0]
+                    targetLhY = lh["position"][1]
+                    finalTarget.append(targetLhX)
+                    finalTarget.append(targetLhY)
+        return finalTarget
 
     def aStar(start, goal, grid):
         return [[1,0]]
